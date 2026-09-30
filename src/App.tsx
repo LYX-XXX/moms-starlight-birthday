@@ -301,6 +301,10 @@ function App() {
   useEffect(() => () => streamRef.current?.getTracks().forEach((track) => track.stop()), []);
 
   const downloadPoster = async () => {
+    await Promise.all([
+      document.fonts.load('600 72px "Quan Heng Du Liang"'),
+      document.fonts.load('400 36px "Quan Heng Du Liang"'),
+    ]);
     const image = new Image();
     image.src = assetPath("assets/poster/poster-main.png");
     await image.decode();
@@ -320,12 +324,12 @@ function App() {
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     ctx.textAlign = "center";
     ctx.fillStyle = "#f7c873";
-    ctx.font = "600 72px serif";
+    ctx.font = '600 72px "Quan Heng Du Liang", sans-serif';
     ctx.fillText("妈妈，生日快乐", 540, 1590);
     ctx.fillStyle = "rgba(255,255,255,.92)";
-    ctx.font = "36px sans-serif";
+    ctx.font = '36px "Quan Heng Du Liang", sans-serif';
     ctx.fillText("愿岁岁安康，永远自由明亮", 540, 1665);
-    ctx.font = "28px sans-serif";
+    ctx.font = '28px "Quan Heng Du Liang", sans-serif';
     ctx.fillStyle = "rgba(255,255,255,.72)";
     ctx.fillText("爱你的女儿 · LYX", 540, 1740);
     const link = document.createElement("a");

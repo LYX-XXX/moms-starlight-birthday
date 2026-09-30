@@ -1,7 +1,21 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600&family=Noto+Serif+SC:wght@400;500;600;700&display=swap");
+@font-face {
+  font-family: "Quan Heng Du Liang";
+  src: url("/assets/fonts/quan-heng-du-liang-v0.1.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Chill Huo Fang Song";
+  src: url("/assets/fonts/chill-huo-fang-song-regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
 
 :root {
-  font-family: "Noto Sans SC", "Microsoft YaHei", system-ui, sans-serif;
+  font-family: "Quan Heng Du Liang", "Microsoft YaHei", system-ui, sans-serif;
   color: #f8f5ef;
   background: #070a18;
   font-synthesis: none;
@@ -78,7 +92,7 @@ button:focus-visible, input:focus-visible { outline: 2px solid var(--gold); outl
 }
 
 h1, h2, p { margin-top: 0; }
-h1, h2 { font-family: "Noto Serif SC", serif; font-weight: 500; text-wrap: balance; }
+h1, h2 { font-family: "Quan Heng Du Liang", "Microsoft YaHei", sans-serif; font-weight: 500; text-wrap: balance; }
 h1 { font-size: clamp(2rem, 5.5vw, 4.8rem); line-height: 1.32; letter-spacing: -.03em; }
 h2 { font-size: clamp(1.85rem, 4vw, 3.75rem); line-height: 1.35; letter-spacing: -.025em; }
 
@@ -186,7 +200,7 @@ h2 { font-size: clamp(1.85rem, 4vw, 3.75rem); line-height: 1.35; letter-spacing:
   height: 4.8rem; padding: max(.75rem, env(safe-area-inset-top)) clamp(1rem, 3vw, 3rem) .75rem;
   border-bottom: 1px solid rgba(255,255,255,.07); background: linear-gradient(rgba(7,10,24,.86), rgba(7,10,24,.48)); backdrop-filter: blur(18px);
 }
-.brand { display: flex; align-items: center; gap: .7rem; font-family: "Noto Serif SC", serif; font-size: .95rem; }
+.brand { display: flex; align-items: center; gap: .7rem; font-family: "Quan Heng Du Liang", "Microsoft YaHei", sans-serif; font-size: .95rem; }
 .brand-star { color: var(--gold); }
 .top-actions { display: flex; align-items: center; gap: .55rem; }
 .audio-button, .skip-button { display: inline-flex; align-items: center; gap: .55rem; padding: .65rem .8rem; border-radius: .8rem; color: rgba(255,255,255,.72); background: rgba(255,255,255,.045); }
@@ -230,12 +244,13 @@ h2 { font-size: clamp(1.85rem, 4vw, 3.75rem); line-height: 1.35; letter-spacing:
 .letter-paper::before { content: ""; position: absolute; inset: .9rem; border: 1px solid rgba(99,68,45,.19); box-shadow: inset 0 0 0 1px rgba(255,255,255,.16); pointer-events: none; }
 .letter-paper::after { content: ""; position: absolute; inset: 0; opacity: .24; pointer-events: none; background: repeating-linear-gradient(0deg, transparent 0 5px, rgba(72,49,29,.035) 6px), linear-gradient(90deg, transparent 49.7%, rgba(89,55,27,.13) 50%, transparent 50.3%); mix-blend-mode: multiply; }
 .letter-kicker { color: #9b7042; font-size: .78rem; letter-spacing: .22em; }
-.letter-paper h2 { margin-bottom: 2rem; color: #433124; font-size: clamp(1.6rem, 3vw, 2.4rem); }
-.letter-body { position: relative; z-index: 1; min-height: 23rem; white-space: pre-wrap; color: #3c332d; font-family: "Noto Serif SC", serif; font-size: clamp(.98rem, 1.8vw, 1.13rem); line-height: 2.05; text-shadow: 0 1px rgba(255,255,255,.2); }
+.letter-paper { font-family: "Chill Huo Fang Song", "FangSong", "STFangsong", serif; }
+.letter-paper h2 { margin-bottom: 2rem; color: #433124; font-family: inherit; font-size: clamp(1.6rem, 3vw, 2.4rem); }
+.letter-body { position: relative; z-index: 1; min-height: 23rem; white-space: pre-wrap; color: #3c332d; font-family: inherit; font-size: clamp(.98rem, 1.8vw, 1.13rem); line-height: 2.05; text-shadow: 0 1px rgba(255,255,255,.2); }
 .type-caret { display: inline-block; width: .08em; height: 1.1em; margin-left: .12em; vertical-align: -.12em; background: #765039; animation: caretBlink .8s steps(1) infinite; }
 @keyframes caretBlink { 50% { opacity: 0; } }
 .letter-skip { position: relative; z-index: 2; margin-top: 1.5rem; padding: .5rem 0; color: #8b6545; border: 0; border-bottom: 1px solid rgba(109,73,42,.3); background: transparent; font-size: .76rem; letter-spacing: .08em; cursor: pointer; }
-.letter-signature { position: relative; z-index: 1; margin: 2rem 0 0; color: #694833; font-family: "Noto Serif SC", serif; text-align: right; }
+.letter-signature { position: relative; z-index: 1; margin: 2rem 0 0; color: #694833; font-family: inherit; text-align: right; }
 @keyframes letterIn { from { opacity: 0; transform: translateY(8px); } }
 
 .cake-scene h2 { margin: .4rem 0 .8rem; }
@@ -265,12 +280,12 @@ h2 { font-size: clamp(1.85rem, 4vw, 3.75rem); line-height: 1.35; letter-spacing:
 .nebula-polaroid img { width: 100%; height: 12.6rem; display: block; object-fit: cover; background: #111; pointer-events: none; }
 .memory-copy { display: grid; gap: .35rem; padding: .65rem .4rem .1rem; text-align: left; }
 .memory-copy small { color: #9c6b45; font-size: .7rem; letter-spacing: .2em; }
-.memory-copy strong { overflow: hidden; font-family: "Noto Serif SC", serif; font-size: .78rem; line-height: 1.5; font-weight: 500; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+.memory-copy strong { overflow: hidden; font-family: "Quan Heng Du Liang", "Microsoft YaHei", sans-serif; font-size: .78rem; line-height: 1.5; font-weight: 500; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
 .memory-index { position: absolute; top: 1.1rem; left: 1.1rem; z-index: 2; padding: .3rem .45rem; color: white; font-size: .72rem; background: rgba(9,12,29,.68); backdrop-filter: blur(8px); }
 .expand-icon { position: absolute; right: .8rem; bottom: .8rem; color: #7b6857; }
 .memory-controls { display: grid; grid-template-columns: 3rem minmax(12rem, 27rem) 3rem; align-items: center; gap: 1rem; }
 .memory-controls p { display: grid; gap: .25rem; margin: 0; }
-.memory-controls strong { color: var(--gold); font-family: "Noto Serif SC", serif; font-weight: 500; }
+.memory-controls strong { color: var(--gold); font-family: "Quan Heng Du Liang", "Microsoft YaHei", sans-serif; font-weight: 500; }
 .memory-controls span { color: rgba(255,255,255,.45); font-size: .72rem; }
 .memory-dots { display: flex; gap: .5rem; }
 .memory-dots button { width: .45rem; height: .45rem; padding: 0; border: 0; border-radius: 50%; background: rgba(255,255,255,.25); cursor: pointer; transition: .2s; }
@@ -286,7 +301,7 @@ h2 { font-size: clamp(1.85rem, 4vw, 3.75rem); line-height: 1.35; letter-spacing:
 .wish-orb::after { content: ""; position: absolute; inset: 12%; border: 1px solid rgba(247,200,115,.22); border-radius: 50%; transform: rotate(-18deg) scaleX(1.5); }
 .wish-orb:disabled { cursor: default; opacity: .45; }
 .wish-orb span { display: block; margin-bottom: 1.5rem; color: rgba(247,200,115,.6); font-family: serif; font-size: 2rem; }
-.wish-orb p { position: relative; z-index: 2; margin: 0; font-family: "Noto Serif SC", serif; line-height: 1.9; }
+.wish-orb p { position: relative; z-index: 2; margin: 0; font-family: "Quan Heng Du Liang", "Microsoft YaHei", sans-serif; line-height: 1.9; }
 .wish-orb.lit { border-color: rgba(247,200,115,.54); background: radial-gradient(circle at 35% 25%, rgba(255,238,190,.55), rgba(116,72,139,.55) 35%, rgba(19,24,54,.78) 70%); box-shadow: 0 0 80px rgba(247,200,115,.18), inset -20px -20px 55px rgba(0,0,0,.27); animation: orbLit .8s ease both; }
 @keyframes orbLit { from { transform: scale(.88); filter: brightness(1.8); } }
 
@@ -318,7 +333,7 @@ h2 { font-size: clamp(1.85rem, 4vw, 3.75rem); line-height: 1.35; letter-spacing:
 .lightbox figure img { max-width: 100%; max-height: 72svh; object-fit: contain; box-shadow: 0 30px 80px rgba(0,0,0,.45); }
 .lightbox figcaption { max-width: 42rem; margin: 1rem auto 0; }
 .lightbox figcaption small { color: var(--gold); letter-spacing: .18em; }
-.lightbox figcaption p { margin: .55rem 0 0; font-family: "Noto Serif SC", serif; line-height: 1.7; }
+.lightbox figcaption p { margin: .55rem 0 0; font-family: "Quan Heng Du Liang", "Microsoft YaHei", sans-serif; line-height: 1.7; }
 .lightbox-close, .lightbox-arrow { position: absolute; display: grid; place-items: center; border-radius: 50%; background: rgba(255,255,255,.08); }
 .lightbox-close { top: 1.2rem; right: 1.2rem; width: 3rem; height: 3rem; }
 .lightbox-arrow { top: 50%; width: 3.2rem; height: 3.2rem; transform: translateY(-50%); }
