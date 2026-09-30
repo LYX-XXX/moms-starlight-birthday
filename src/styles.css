@@ -161,17 +161,26 @@ h2 { font-size: clamp(1.85rem, 4vw, 3.75rem); line-height: 1.35; letter-spacing:
   text-align: center;
   border: 1px solid rgba(255,255,255,.12);
   border-radius: 2rem;
-  background: linear-gradient(145deg, rgba(11,16,38,.78), rgba(21,17,45,.58));
-  box-shadow: 0 35px 100px rgba(0,0,0,.38), inset 0 1px rgba(255,255,255,.08);
-  backdrop-filter: blur(24px) saturate(125%);
+  background: linear-gradient(145deg, rgba(11,16,38,.46), rgba(21,17,45,.28));
+  box-shadow: 0 35px 100px rgba(0,0,0,.24), inset 0 1px rgba(255,255,255,.06);
+  backdrop-filter: blur(12px) saturate(112%);
   opacity: 0;
   pointer-events: none;
 }
 .entry-card.is-visible {
   pointer-events: auto;
-  animation: entryCopyReveal 1.65s cubic-bezier(.2,.72,.24,1) both;
+  animation: entryCopyReveal 3.8s cubic-bezier(.2,.72,.24,1) both;
 }
-@keyframes entryCopyReveal { from { opacity: 0; transform: translateY(28px) scale(.975); filter: blur(10px); } to { opacity: 1; transform: none; filter: none; } }
+@keyframes entryCopyReveal { from { opacity: 0; transform: translateY(22px) scale(.985); filter: blur(8px); } to { opacity: 1; transform: none; filter: none; } }
+.entry-card.is-visible > * { animation: entryTextReveal 2.2s cubic-bezier(.2,.72,.24,1) both; }
+.entry-card.is-visible > .entry-gem { animation-delay: .2s; }
+.entry-card.is-visible > .eyebrow { animation-delay: .55s; }
+.entry-card.is-visible > h1 { animation-delay: .95s; }
+.entry-card.is-visible > p:not(.eyebrow) { animation-delay: 1.4s; }
+.entry-card.is-visible > .code-field { animation-delay: 1.8s; }
+.entry-card.is-visible > .entry-button { animation-delay: 2.15s; }
+.entry-card.is-visible > .privacy-note { animation-delay: 2.45s; }
+@keyframes entryTextReveal { from { opacity: 0; transform: translateY(16px); filter: blur(7px); } to { opacity: 1; transform: none; filter: none; } }
 .entry-card::before {
   content: "";
   position: absolute;
