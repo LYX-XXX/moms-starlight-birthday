@@ -339,7 +339,7 @@ function App() {
       <section className="scene intro-scene" aria-labelledby="intro-title">
         <div className="meteor" />
         <p className="eyebrow">A LIGHT BORROWED FROM THE UNIVERSE</p>
-        <h1 id="intro-title">妈妈，今天是宇宙<br />把光都借给我们的日子。</h1>
+        <h1 id="intro-title">妈妈，今天宇宙<br />借来了满片星光。</h1>
         <p className="scene-note">请慢一点，让星光把这封信送到你身边。</p>
         <button className="primary-button" onClick={() => go(1)}>打开这封信 <Sparkles size={17} /></button>
       </section>
@@ -443,7 +443,7 @@ function App() {
             return <button key={blessing} className={`wish-orb ${lit ? "lit" : ""}`} disabled={index > litBlessings} onClick={() => setLitBlessings(Math.max(litBlessings, index + 1))}><span>{index + 1}</span><p>{lit ? blessing : "轻触点亮"}</p></button>;
           })}
         </div>
-        {litBlessings === blessings.length && <button className="primary-button" onClick={() => go(5)}>去看最后一束光 <ArrowRight size={17} /></button>}
+        {litBlessings === blessings.length && <button className="primary-button" onClick={() => go(5)}>生成祝福海报 <ArrowRight size={17} /></button>}
       </section>
     );
 
