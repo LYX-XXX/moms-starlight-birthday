@@ -112,8 +112,36 @@ h2 { font-size: clamp(1.85rem, 4vw, 3.75rem); line-height: 1.35; letter-spacing:
 
 .entry-app { display: grid; place-items: center; padding: 1.25rem; }
 .entry-app .cloud-shell { opacity: .95; }
+.entry-cinematic { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+.entry-space-video { position: absolute; inset: -3%; width: 106%; height: 106%; object-fit: cover; opacity: 0; filter: saturate(.78) contrast(1.08) brightness(.62); animation: entryVideoReveal 4.6s ease both; }
+.entry-cinematic-shade { position: absolute; inset: 0; background: radial-gradient(circle at 50% 42%, transparent 0 9%, rgba(7,10,24,.12) 38%, rgba(7,10,24,.72) 100%), linear-gradient(180deg, rgba(7,10,24,.15), rgba(7,10,24,.64)); }
+.entry-first-meteor, .entry-meteor-rain i { position: absolute; display: block; height: 1px; border-radius: 999px; background: linear-gradient(90deg, transparent, rgba(210,228,255,.9) 55%, #fff); box-shadow: 22px 0 18px rgba(210,230,255,.9), 60px 0 32px rgba(126,164,255,.3); transform: rotate(-27deg); opacity: 0; }
+.entry-first-meteor { top: 17%; right: 8%; width: clamp(8rem, 17vw, 16rem); animation: entryFirstMeteor 1.25s .2s cubic-bezier(.18,.72,.28,1) both; }
+.entry-meteor-rain { position: absolute; inset: 0; }
+.entry-meteor-rain i { width: clamp(4.5rem, 10vw, 9rem); animation: entryMeteorRain 1.35s cubic-bezier(.2,.72,.3,1) both; }
+.entry-meteor-rain i:nth-child(1) { top: 6%; left: 76%; animation-delay: 1.05s; }
+.entry-meteor-rain i:nth-child(2) { top: 15%; left: 54%; animation-delay: 1.25s; }
+.entry-meteor-rain i:nth-child(3) { top: 2%; left: 34%; animation-delay: 1.42s; }
+.entry-meteor-rain i:nth-child(4) { top: 30%; left: 83%; animation-delay: 1.58s; }
+.entry-meteor-rain i:nth-child(5) { top: 25%; left: 23%; animation-delay: 1.78s; }
+.entry-meteor-rain i:nth-child(6) { top: 44%; left: 68%; animation-delay: 1.92s; }
+.entry-meteor-rain i:nth-child(7) { top: 9%; left: 92%; animation-delay: 2.08s; }
+.entry-meteor-rain i:nth-child(8) { top: 49%; left: 40%; animation-delay: 2.24s; }
+.entry-meteor-rain i:nth-child(9) { top: 35%; left: 8%; animation-delay: 2.42s; }
+.entry-meteor-rain i:nth-child(10) { top: 59%; left: 87%; animation-delay: 2.58s; }
+.entry-star-bloom { position: absolute; top: 43%; left: 50%; width: min(28rem, 62vw); aspect-ratio: 1; opacity: 0; transform: translate(-50%,-50%) scale(.18); animation: entryStarBloom 2.3s 2.35s cubic-bezier(.18,.74,.24,1) forwards; }
+.entry-star-bloom::before { content: ""; position: absolute; inset: 20%; border-radius: 50%; background: radial-gradient(circle, rgba(255,247,211,.92), rgba(247,200,115,.28) 18%, rgba(124,105,255,.16) 42%, transparent 70%); filter: blur(7px); }
+.entry-star-bloom span { position: absolute; inset: 0; display: grid; place-items: center; color: #fff4c9; font-size: clamp(2.2rem, 6vw, 5rem); text-shadow: 0 0 16px #fff, 0 0 52px #f7c873, 0 0 110px #8471ff; }
+.entry-star-bloom i { position: absolute; inset: 18%; border: 1px solid rgba(247,200,115,.32); border-radius: 50%; animation: entryStarRing 3.8s ease-out infinite; }
+.entry-star-bloom i:last-child { inset: 2%; border-color: rgba(162,176,255,.18); animation-delay: .7s; }
+@keyframes entryVideoReveal { 0% { opacity: 0; transform: scale(1.08); } 38% { opacity: .58; } 100% { opacity: .3; transform: scale(1); } }
+@keyframes entryFirstMeteor { 0% { opacity: 0; transform: translate3d(18vw,-12vh,0) rotate(-27deg); } 16% { opacity: 1; } 100% { opacity: 0; transform: translate3d(-72vw,54vh,0) rotate(-27deg); } }
+@keyframes entryMeteorRain { 0% { opacity: 0; transform: translate3d(20vw,-15vh,0) rotate(-27deg); } 20% { opacity: .95; } 100% { opacity: 0; transform: translate3d(-66vw,48vh,0) rotate(-27deg); } }
+@keyframes entryStarBloom { 0% { opacity: 0; transform: translate(-50%,-50%) scale(.18); filter: blur(12px); } 45% { opacity: 1; } 100% { opacity: .72; transform: translate(-50%,-50%) scale(1); filter: blur(0); } }
+@keyframes entryStarRing { from { opacity: .72; transform: scale(.55); } to { opacity: 0; transform: scale(1.45); } }
 .entry-card {
   position: relative;
+  z-index: 3;
   width: min(44rem, 100%);
   padding: clamp(2.2rem, 6vw, 5.25rem);
   text-align: center;
@@ -122,7 +150,14 @@ h2 { font-size: clamp(1.85rem, 4vw, 3.75rem); line-height: 1.35; letter-spacing:
   background: linear-gradient(145deg, rgba(11,16,38,.78), rgba(21,17,45,.58));
   box-shadow: 0 35px 100px rgba(0,0,0,.38), inset 0 1px rgba(255,255,255,.08);
   backdrop-filter: blur(24px) saturate(125%);
+  opacity: 0;
+  pointer-events: none;
 }
+.entry-card.is-visible {
+  pointer-events: auto;
+  animation: entryCopyReveal 1.65s cubic-bezier(.2,.72,.24,1) both;
+}
+@keyframes entryCopyReveal { from { opacity: 0; transform: translateY(28px) scale(.975); filter: blur(10px); } to { opacity: 1; transform: none; filter: none; } }
 .entry-card::before {
   content: "";
   position: absolute;

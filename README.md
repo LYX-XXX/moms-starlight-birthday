@@ -32,6 +32,7 @@ pnpm preview
 - `public/assets/poster/`：最终祝福海报原图
 - `public/assets/cake/`：星空蛋糕插图
 - `public/assets/audio/`：背景音乐
+- `public/assets/video/`：首页星空视频素材（仅桌面端加载）
 - `vendor/threeui-cloud-field/`：Cloud Field 组件所需源码
 
 访问口令：`2026.10`

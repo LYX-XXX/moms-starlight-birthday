@@ -178,6 +178,8 @@ function useStarlightMusic() {
 
 function App() {
   const [entered, setEntered] = useState(false);
+  const [entryReady, setEntryReady] = useState(false);
+  const [entryVideoEnabled, setEntryVideoEnabled] = useState(false);
   const [code, setCode] = useState("");
   const [codeError, setCodeError] = useState(false);
   const [scene, setScene] = useState(0);
@@ -193,6 +195,14 @@ function App() {
   const streamRef = useRef<MediaStream | null>(null);
   const nebulaDrag = useRef<{ x: number; rotation: number; moved: boolean } | null>(null);
   const { playing, begin, toggle } = useStarlightMusic();
+
+  useEffect(() => {
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const desktopVideo = window.matchMedia("(min-width: 860px)").matches;
+    setEntryVideoEnabled(!reducedMotion && desktopVideo);
+    const timer = window.setTimeout(() => setEntryReady(true), reducedMotion ? 30 : 4600);
+    return () => window.clearTimeout(timer);
+  }, []);
 
   const enter = async () => {
     if (code.trim() !== "2026.10") {
@@ -457,10 +467,17 @@ function App() {
     <main className="app entry-app">
       <CloudBackground />
       <div className="star-noise" aria-hidden="true" />
-      <section className="entry-card" aria-labelledby="entry-title">
+      <div className={`entry-cinematic ${entryReady ? "is-settled" : ""}`} aria-hidden="true">
+        {entryVideoEnabled && <video className="entry-space-video" src={assetPath("assets/video/space-stars-4k.mp4")} autoPlay muted playsInline loop preload="metadata" />}
+        <div className="entry-cinematic-shade" />
+        <span className="entry-first-meteor" />
+        <div className="entry-meteor-rain">{Array.from({ length: 10 }, (_, index) => <i key={index} />)}</div>
+        <div className="entry-star-bloom"><span>✦</span><i /><i /></div>
+      </div>
+      <section className={`entry-card ${entryReady ? "is-visible" : ""}`} aria-labelledby="entry-title">
         <div className="entry-gem"><Sparkles /></div>
         <p className="eyebrow">A PRIVATE CONSTELLATION</p>
-        <h1 id="entry-title">妈妈，在今天这个特别的日子里，<br />请和我一起开启旅程。</h1>
+        <h1 id="entry-title">妈妈，今天宇宙借来了满片星光。<br />请和我一起开启旅程。</h1>
         <p>有些话，想借星光慢慢说给你听。</p>
         <div className="code-field">
           <label htmlFor="birthday-code">我们的纪念日口令</label>
