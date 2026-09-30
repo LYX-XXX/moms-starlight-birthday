@@ -200,7 +200,8 @@ function App() {
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const desktopVideo = window.matchMedia("(min-width: 860px)").matches;
     setEntryVideoEnabled(!reducedMotion && desktopVideo);
-    const timer = window.setTimeout(() => setEntryReady(true), reducedMotion ? 30 : 4600);
+    const introDuration = desktopVideo ? 8000 : 4600;
+    const timer = window.setTimeout(() => setEntryReady(true), reducedMotion ? 30 : introDuration);
     return () => window.clearTimeout(timer);
   }, []);
 
