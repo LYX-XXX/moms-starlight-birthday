@@ -33,7 +33,7 @@
 html, body, #root { min-width: 320px; min-height: 100%; margin: 0; }
 body { overflow-x: hidden; }
 button, input { font: inherit; }
-button { color: inherit; }
+button { color: inherit; font-family: "Chill Huo Fang Song", "FangSong", "STFangsong", serif; }
 button:focus-visible, input:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
 
 .app {
@@ -278,14 +278,14 @@ h2 { font-size: clamp(1.85rem, 4vw, 3.75rem); line-height: 1.35; letter-spacing:
 .nebula-polaroid:not(.active) { opacity: .62; filter: saturate(.7) brightness(.72); }
 .nebula-polaroid.active { z-index: 5; box-shadow: 0 28px 80px rgba(0,0,0,.58), 0 0 34px rgba(247,200,115,.22); }
 .nebula-polaroid img { width: 100%; height: 12.6rem; display: block; object-fit: cover; background: #111; pointer-events: none; }
-.memory-copy { display: grid; gap: .35rem; padding: .65rem .4rem .1rem; text-align: left; }
+.memory-copy { display: grid; gap: .35rem; padding: .65rem .4rem .1rem; font-family: "Chill Huo Fang Song", "FangSong", "STFangsong", serif; text-align: left; }
 .memory-copy small { color: #9c6b45; font-size: .7rem; letter-spacing: .2em; }
-.memory-copy strong { overflow: hidden; font-family: "Quan Heng Du Liang", "Microsoft YaHei", sans-serif; font-size: .78rem; line-height: 1.5; font-weight: 500; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
-.memory-index { position: absolute; top: 1.1rem; left: 1.1rem; z-index: 2; padding: .3rem .45rem; color: white; font-size: .72rem; background: rgba(9,12,29,.68); backdrop-filter: blur(8px); }
+.memory-copy strong { overflow: hidden; font-family: inherit; font-size: .78rem; line-height: 1.5; font-weight: 500; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+.memory-index { position: absolute; top: 1.1rem; left: 1.1rem; z-index: 2; padding: .3rem .45rem; color: white; font-family: "Chill Huo Fang Song", "FangSong", "STFangsong", serif; font-size: .72rem; background: rgba(9,12,29,.68); backdrop-filter: blur(8px); }
 .expand-icon { position: absolute; right: .8rem; bottom: .8rem; color: #7b6857; }
 .memory-controls { display: grid; grid-template-columns: 3rem minmax(12rem, 27rem) 3rem; align-items: center; gap: 1rem; }
-.memory-controls p { display: grid; gap: .25rem; margin: 0; }
-.memory-controls strong { color: var(--gold); font-family: "Quan Heng Du Liang", "Microsoft YaHei", sans-serif; font-weight: 500; }
+.memory-controls p { display: grid; gap: .25rem; margin: 0; font-family: "Chill Huo Fang Song", "FangSong", "STFangsong", serif; }
+.memory-controls strong { color: var(--gold); font-family: inherit; font-weight: 500; }
 .memory-controls span { color: rgba(255,255,255,.45); font-size: .72rem; }
 .memory-dots { display: flex; gap: .5rem; }
 .memory-dots button { width: .45rem; height: .45rem; padding: 0; border: 0; border-radius: 50%; background: rgba(255,255,255,.25); cursor: pointer; transition: .2s; }
@@ -331,9 +331,9 @@ h2 { font-size: clamp(1.85rem, 4vw, 3.75rem); line-height: 1.35; letter-spacing:
 @keyframes fadeIn { from { opacity: 0; } }
 .lightbox figure { max-width: min(80vw, 56rem); max-height: 88svh; margin: 0; text-align: center; }
 .lightbox figure img { max-width: 100%; max-height: 72svh; object-fit: contain; box-shadow: 0 30px 80px rgba(0,0,0,.45); }
-.lightbox figcaption { max-width: 42rem; margin: 1rem auto 0; }
+.lightbox figcaption { max-width: 42rem; margin: 1rem auto 0; font-family: "Chill Huo Fang Song", "FangSong", "STFangsong", serif; }
 .lightbox figcaption small { color: var(--gold); letter-spacing: .18em; }
-.lightbox figcaption p { margin: .55rem 0 0; font-family: "Quan Heng Du Liang", "Microsoft YaHei", sans-serif; line-height: 1.7; }
+.lightbox figcaption p { margin: .55rem 0 0; font-family: inherit; line-height: 1.7; }
 .lightbox-close, .lightbox-arrow { position: absolute; display: grid; place-items: center; border-radius: 50%; background: rgba(255,255,255,.08); }
 .lightbox-close { top: 1.2rem; right: 1.2rem; width: 3rem; height: 3rem; }
 .lightbox-arrow { top: 50%; width: 3.2rem; height: 3.2rem; transform: translateY(-50%); }
